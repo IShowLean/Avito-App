@@ -1,70 +1,88 @@
-# Getting Started with Create React App
+# 📌 Avito App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 📖 Описание проекта
+Web-приложение является упрощённым аналогом сервиса объявлений. 
+Оно позволяет пользователям создавать, редактировать, удалять и просматривать объявления в различных категориях (недвижимость, авто, услуги).
 
-## Available Scripts
+## 💡 Обоснование выбора необязательных технологий
+- **Material-UI**
+    - Популярная библиотека готовых UI компонентов.
+    - Включает в себя набор готовых компонентов, таких как кнопки, карточки, формы и модальные окна.
+    - Упрощает создание адаптивных и стильных интерфейсов. Позволяет программисту больше сосредоточиться на функциональности Web-приложения и бизнес-логике, чем над написанием собственных интерфейсов. Ускоряет разработку.
+- **React Hook Form**
+    - Позволяет управлять формами и их валидацией с минимальными перерисовками компонентов.
+    - Улучшает производительность по сравнению с обычным useState.
+    - Прост в использовании и легко интегрируется с Yup.
+- **Yup**
+    - Мощная и гибкая библиотека для валидации данных.
+    - Позволяет декларативно описывать схему валидации данных.
+    - Интегрируется с React Hook Form, что делает код чище и удобнее.
+    - Поддерживает сложные правила валидации.
+- **Axios**
+    - Популярная библиотека для работы с HTTP запросами.
+    - Поддерживает интерцепторы запросов и ответов, что помогает обработке ошибок и аутентификации.
+    - Удобнее и имеет больше возможностей по сравнению с fetch.
+- **CORS**
+    - Middleware для Express.js
+    - Разрешает клиенту делать запросы к серверу с другого домена.
+- **Prettier**
+    - Инструмент форматирования кода.
+    - Делает код читабельнее.
+- **Docker**
+    - Инструмент для контейниризации приложений.
+    - Позволяет запускать сервер и клиент в изолированных контейнерах.
+    - Облегчает развертывание на любых системах без необходимости установки зависимостей.
+- **ESLint**
+    - Анализатор кода, который помогает находить и устранять ошибки в коде.
+    - Улучшает читаемость и поддерживаемость кода.
 
-In the project directory, you can run:
+## 🚀 Запуск проекта с помощью Docker
 
-### `npm start`
+### 1. Установка зависимостей
+Убедитесь, что у вас установлен Docker.
+Склонируйте репозиторий.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+```sh
+git clone https://github.com/IShowLean/Avito-App.git
+cd avito
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### 2. Запуск Web-приложения
+Чтобы запустить контейнеры находясь в директории **avito** пропишите:
+```sh
+docker compose -p avito up -d
+```
+Приложение запущено.
+Приложение будет доступно по адресу:
+```
+http://localhost:8080/
+```
 
-### `npm test`
+## 🛠 Запуск проекта по-классике
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 1. Установка зависимостей
+Перед началом работы убедитесь, что у вас установлен **Node.js v20** и **npm**.  
+Склонируйте репозиторий и установите зависимости:
 
-### `npm run build`
+```sh
+git clone https://github.com/IShowLean/Avito-App.git
+cd avito
+npm install
+```
+### 2. Запуск сервера
+Находясь в директории **avito** пропишите путь для **Node.js** к папке с сервером.
+```sh
+node ./src/server/app.js
+```
+Теперь запущен на порту **3000** по умолчанию, если в переменные окружения не был передан другой порт.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+**ВАЖНО!** <br/>
+Клиент отправляет запросы только на сервер с портом 3000!
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### 3. Запуск клиента
+Находясь в другом терминале в директории **avito** пропишите:
+```sh
+npm start
+```
+Нажмите **Y** чтобы подтвердить запуск на порту, отличным от 3000 (им занят сервер)
+Клиент запущен.

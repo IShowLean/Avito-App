@@ -1,0 +1,23 @@
+version: "3.8"
+
+services:
+  server:
+    build:
+      context: .
+      dockerfile: ./src/server/Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - PORT=3000
+    volumes:
+      - ./src/server:/app
+      - /app/node_modules
+
+  client:
+    build:
+      context: .
+      dockerfile: ./src/client/Dockerfile
+    ports:
+      - "8080:80"
+    volumes:
+      - ./src/client:/app
